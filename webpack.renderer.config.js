@@ -1,24 +1,25 @@
-const path = require("path");
-const rules = require("./webpack.rules");
+const path = require('path');
+const rules = require('./webpack.rules');
 
 function srcPaths(src) {
   return path.join(__dirname, src);
 }
 
 module.exports = {
-  mode: "development",
-  target: "electron-renderer",
-  devtool: "source-map",
+  mode: 'development',
+  target: 'electron-renderer',
+  devtool: 'source-map',
   module: {
-    rules
+    rules,
   },
   resolve: {
     alias: {
-      "@main": srcPaths("src/main"),
-      "@models": srcPaths("src/models"),
-      "@renderer": srcPaths("src/renderer"),
-      "react-dom": "@hot-loader/react-dom"
+      '@src': srcPaths('src/'),
+      '@main': srcPaths('src/main'),
+      '@models': srcPaths('src/models'),
+      '@renderer': srcPaths('src/renderer'),
+      'react-dom': '@hot-loader/react-dom',
     },
-    extensions: [".js", ".jsx", ".json"]
-  }
+    extensions: ['.js', '.jsx', '.json'],
+  },
 };
